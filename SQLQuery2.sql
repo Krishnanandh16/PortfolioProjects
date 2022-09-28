@@ -34,9 +34,7 @@ ORDER BY Total_death_count DESC
 
 Select SUM(new_cases) as total_cases, SUM(cast(new_deaths as int)) as total_deaths, SUM(cast(new_deaths as int))/SUM(New_Cases)*100 as DeathPercentage
 From portfolioprojects..coviddeaths
---Where location like '%states%'
 where continent is not null 
---Group By date
 order by 1,2
 
 --Total vaccination with repsect to population
@@ -54,7 +52,6 @@ as
 (
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
 , SUM(CONVERT(int,vac.new_vaccinations)) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
---, (RollingPeopleVaccinated/population)*100
 From portfolioprojects..coviddeaths dea
 Join portfolioprojects..covidvaccinations vac
 On dea.location = vac.location and dea.date = vac.date
@@ -68,11 +65,9 @@ From PopvsVac
 Create View PercentPopulationVaccinated as
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
 , SUM(CONVERT(int,vac.new_vaccinations)) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
---, (RollingPeopleVaccinated/population)*100
 From portfolioprojects..coviddeaths dea
 Join portfolioprojects..covidvaccinations vac
-	On dea.location = vac.location
-	and dea.date = vac.date
+On dea.location = vac.location and dea.date = vac.date
 where dea.continent is not null 
 
 SELECT * 
