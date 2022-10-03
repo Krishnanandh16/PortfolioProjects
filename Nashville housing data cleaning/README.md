@@ -2,6 +2,6 @@
 
 In this cleaning the standarizing of date column ,splitting the address into diferent columns like city, state
 
-Remove the duplicate etc was carried out
+Remove the duplicate etc.  were carried out
 
 Removal of unneccessary columns
