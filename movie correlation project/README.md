@@ -1,38 +1,9 @@
 # About this file
 This Dataset is obteained from kaggle :https://www.kaggle.com/danielgrijalvas/movies
 
-the dataset contains 6820 movies from the year 1986-2016 haing columns attributes like:
-.budget
+The dataset contains 6820 movies from the year 1986-2016 haing columns attributes and among them we had choosen the attributes budget and the company produced to check the correlation with gross,to find out how tey affect the gross
 
-company
+## The conclusion obtained after the annalysis was
+. it is found that the correlation of gross is very strong with budget and votes with correlation coefficent of 0.71 and 0.63
 
-country
-
-director
-
-genre
-
-gross
-
-name
-
-rating
-
-released
-
-runtime
-
-score
-
-votes
-
-star
-
-writer
-
-year
-
-# About the process and the algorithm used
-Navie bayes is used as the machie learning algorith and he CountVectorizer functionfrom the sklearn is used for the conversion of the string into numerical values
-and find out the the accuracy score and f1 score as 0.984 and 0.943 which imples that model used here is very good in the working
-
+.on the other side, with company it is having very less correlation
